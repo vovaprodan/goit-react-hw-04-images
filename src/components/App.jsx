@@ -11,7 +11,7 @@ import css from './App.module.css'
 class App extends Component  {
   state = {
     picture: '',
-  
+  name:''
    
   }
   
