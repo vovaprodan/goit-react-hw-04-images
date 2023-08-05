@@ -10,11 +10,9 @@ import css from './App.module.css'
 const App = ()  => {
   
   
-
-    const { picture} = this.state;
     return (
     <div  className={css.App}>
-        <Api picture={picture} /> 
+        <Api/> 
     </div>
   );
   

@@ -2,21 +2,20 @@ import  { useEffect } from "react";
 import css from './Modal.module.css'
 
 
-const Modal = (onClose, url) => {
+const Modal = ({onClose, url}) => {
 
-  // componentDidMount() {
-  //   window.addEventListener('keydown', this.handelKeyDown)
-  // }
-  
-  // componentWillUnmount() {
-  //   window.removeEventListener('keydown', this.handelKeyDown)
-  // }
-  const handelKeyDown = (e) => {
-      if (e.code === 'Escape') {
-        onClose()
-    
+  useEffect(() => {
+    const handelKeyDown = (e) => {
+    if (e.code === 'Escape') {
+          onClose()
   }
-  }
+    }
+   window.addEventListener('keydown', handelKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handelKeyDown)
+    };
+  },[onClose]);
   const handelOverlay = e => {
     if (e.currentTarget === e.target) {
      onClose()
